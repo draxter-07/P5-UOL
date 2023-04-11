@@ -1,0 +1,110 @@
+body{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 120px 0px 120px 0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    background-color: rgb(230, 230, 230);
+}
+button{
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(255, 255, 255);
+}
+.header{
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    padding: 20px 30px;
+    box-shadow: 0px 2px 3px rgb(200, 200, 200);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+.logo{
+    height: 50px;
+}
+.people-icon{
+    font-size: 50px;
+}
+.bottom-input{
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 30px;
+    box-shadow: 0px -2px 3px rgb(200, 200, 200);
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+}
+.message-input{
+    border: none;
+    font-style: italic;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+.message-input:focus{
+    outline: none;
+    font-style: normal;
+    color: rgb(0, 0, 0);
+}
+.message-input:focus::placeholder{
+    color: rgb(255, 255, 255);
+}
+.send-icon{
+    font-size: 30px;
+}
+.messages{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.message{
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 0px 0px 10px 0px;
+    padding: 5px 10px;
+}
+.hour{
+    color: rgb(200, 200, 200);
+    margin: 0px 5px 0px 0px;
+}
+.from_to{
+    font-weight: bold;
+    margin: 0px 5px 0px 0px;
+}
+.para{
+    margin: 0px 5px 0px 0px;
+}
+.side-menu{
+    display: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    z-index: 3;
+}
+.blur{
+    display: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(200, 200, 200, 0.5);
+    z-index: 2;
+}

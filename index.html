@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            ChatUOL
+        </title>
+        <link rel="stylesheet" href="./estilos/css-reset.css">
+        <link rel="stylesheet" href="./estilos/estilos.css">
+    </head>
+
+    <body>
+        <div class="header">
+            <img class="logo" src="./imgs/logo-uol.png">
+            <button onclick="open_side()"><ion-icon name="people" class="people-icon"></ion-icon></button>
+        </div>
+        <div class="messages">
+            <div class="message">
+                <span class="hour">0h</span>
+                <span class="from_to">eu</span>
+                <span class="para">para</span>
+                <span class="from_to">eu:</span>
+                <span class="text-message">kk</span>
+            </div>
+        </div>
+        <div class="bottom-input">
+            <input class="message-input" placeholder="Escreva aqui...">
+            <button onclick="send_message()"><ion-icon name="paper-plane-outline" class="send-icon"></ion-icon></button>
+        </div>
+        <div id="side" class="side-menu">
+            <span>oiii</span>
+        </div>
+        <button onclick="close_side()"><div id="blur" class="blur"></div></button>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </body>
+</html>
+
+<script src="./script.js"></script>
