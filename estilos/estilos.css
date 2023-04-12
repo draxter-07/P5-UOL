@@ -1,7 +1,8 @@
 body{
     box-sizing: border-box;
     width: 100%;
-    padding: 120px 0px 120px 0px;
+    height: 100%;
+    padding: 120px 0px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     background-color: rgb(230, 230, 230);
 }
@@ -10,6 +11,20 @@ button{
     margin: 0px;
     padding: 0px;
     background-color: rgb(255, 255, 255);
+}
+.header-inicial{
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    padding: 20px 30px;
+    box-shadow: 0px 2px 3px rgb(200, 200, 200);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;   
 }
 .header{
     box-sizing: border-box;
@@ -34,7 +49,7 @@ button{
 .bottom-input{
     box-sizing: border-box;
     position: absolute;
-    bottom: 0vh;
+    bottom: 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -63,15 +78,18 @@ button{
     font-size: 30px;
 }
 .messages{
-    height: 100%;
+    box-sizing: border-box;
+    height: 500px;
     width: 100%;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    color: red;
+    padding: 10px;
 }
 .message{
     box-sizing: border-box;
     background-color: rgb(255, 255, 255);
-    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -95,8 +113,11 @@ button{
     top: 0px;
     right: 0px;
     height: 100%;
+    width: 80%;
+    padding: 10px;
     background-color: rgb(0, 0, 0);
     z-index: 3;
+    color: red;
 }
 .blur{
     display: none;
@@ -107,4 +128,43 @@ button{
     height: 100%;
     background-color: rgb(200, 200, 200, 0.5);
     z-index: 2;
+}
+.login-input{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgb(0, 0, 0);
+    margin: 0px 0px 10px;
+    background-color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+.login-input:focus::placeholder{
+    color: rgb(255, 255, 255);
+}
+.login-button{
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    margin: 0px 0px 10px;
+    font-size: 15px;
+}
+.login-button:hover{
+    background-color: rgb(200, 200, 200);
+}
+.login-message{
+    font-size: 15px;
+}
+.tela-inicial{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.tela-message{
+    display: none;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
 }
