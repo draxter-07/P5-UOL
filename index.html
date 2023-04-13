@@ -6,6 +6,7 @@
         <title>
             ChatUOL
         </title>
+        <link rel="icon" href="./imgs/logo-uol2.png">
         <link rel="stylesheet" href="./estilos/css-reset.css">
         <link rel="stylesheet" href="./estilos/estilos.css">
     </head>
@@ -31,6 +32,12 @@
                 <button onclick="send_message()"><ion-icon name="paper-plane-outline" class="send-icon"></ion-icon></button>
             </div>
             <div id="side" class="side-menu">
+                <div id="side_part">
+                    <span class="titulo-side">Escolha o destinatário</span>
+                    <div class="destinatario">
+                        <button class="participante">Todos</button>
+                    </div>
+                </div>
             </div>
             <button onclick="close_side()"><div id="blur" class="blur"></div></button>
         </div>
