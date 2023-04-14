@@ -30,7 +30,6 @@ function iniciar(){
     a.then(entrar);
     function entrar(resposta){
         open_message();
-        console.log(resposta.data);
         document.getElementById("message_login").innerHTML = "Bem-vindo!";
         nome_user = nome;
         atualizar_participantes();
@@ -40,7 +39,6 @@ function iniciar(){
     }
     a.catch(tentar_novamente);
     function tentar_novamente(resposta){
-        console.log(resposta.response.status);
         document.getElementById("message_login").innerHTML = "Tente outro usuário";
     }
 }
@@ -130,12 +128,12 @@ async function open_message(){
                 let g = document.createElement('span');
                 f.setAttribute("data-test", "message");
                 if (resposta.data[j].type == 'status'){
-                    g.innerHTML = '<span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].from + '</span> ' + resposta.data[j].text;
+                    g.innerHTML = '<span style="color:rgb(200, 200, 200)">(' + resposta.data[j].time + ')</span> <span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].from + '</span> ' + resposta.data[j].text;
                     f.classList.add('status');
                     f.appendChild(g);
                 }
                 else if (resposta.data[j].type == 'message'){
-                    g.innerHTML = '<span style="color:rgb(200, 200, 200)">' + resposta.data[j].time + '</span> <span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].from + '</span> para <span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].to + '</span>: ' + resposta.data[j].text;
+                    g.innerHTML = '<span style="color:rgb(200, 200, 200)">(' + resposta.data[j].time + ')</span> <span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].from + '</span> para <span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].to + '</span>: ' + resposta.data[j].text;
                     f.classList.add('message');
                     f.appendChild(g);
                 }
