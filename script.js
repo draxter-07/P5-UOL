@@ -36,11 +36,11 @@ function iniciar(){
         manter_conexao();
         document.getElementById("tela_inicial").style.display = "none";
         document.getElementById("tela_message").style.display = "flex";
-    }
+    };
     a.catch(tentar_novamente);
     function tentar_novamente(resposta){
         document.getElementById("message_login").innerHTML = "Tente outro usuário";
-    }
+    };
 }
 
 async function manter_conexao(){
@@ -51,11 +51,11 @@ async function manter_conexao(){
         a.then(conectado);
         function conectado(){
             console.log("Estou conectado");
-        }
+        };
         a.catch(desconectado);
         function desconectado(){
             console.log("Não estou conectado");
-        }
+        };
         atualizar_participantes();
     }
 }
@@ -72,11 +72,11 @@ function send_message(){
     a.then(enviado);
     function enviado(){
         console.log("Mensagem enviada");
-    }
+    };
     a.catch(nao_enviado);
     function nao_enviado(){
         console.log("Mensagem não enviada");
-    }
+    };
     document.getElementById("actual_message").value = "";
 }
 
@@ -106,12 +106,12 @@ function atualizar_participantes(){
             f.appendChild(g);
             f.classList.add('destinatario');
             document.getElementById("side_part").appendChild(f);
-        }
-    }
+        };
+    };
     b.catch(nao_encontrado);
     function nao_encontrado(){
         console.log("Não encontrei os participantes");
-    }
+    };
 }
 
 async function open_message(){
@@ -136,14 +136,14 @@ async function open_message(){
                     g.innerHTML = '<span style="color:rgb(200, 200, 200)">(' + resposta.data[j].time + ')</span> <span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].from + '</span> para <span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].to + '</span>: ' + resposta.data[j].text;
                     f.classList.add('message');
                     f.appendChild(g);
-                }
+                };
                 document.getElementById("messages").appendChild(f);
             };
-        }
+        };
         a.catch(nao_recebi)
         function nao_recebi(resposta){
             console.log("Não encontrei as mensagens");
-        }
+        };
         await sleep(3000);
     };
 }
