@@ -2,6 +2,14 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 let tokenApi = 'Ig05OI8F18Lp90ZDISfjWMt8';
 let nome_user = "";
 let to = "Todos";
+var input_message = document.getElementById("actual_message");
+input_message.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    document.getElementById("send_message").click();}});
+var input_message = document.getElementById("name");
+input_login.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+    document.getElementById("login-btn").click();}});
 
 function open_side(){
     document.getElementById("side").style.display = "flex";
@@ -95,6 +103,7 @@ function atualizar_participantes(){
         for (let i = 0; i < resposta.data.length; i++){
             let f = document.createElement('div');
             let g = document.createElement('button');
+            f.data_test = "participant"
             g.innerHTML = resposta.data[i].name;
             g.classList.add('participante');
             f.appendChild(g);
@@ -119,6 +128,7 @@ function open_message(){
             let j = resposta.data.length - i - 1;
             let f = document.createElement('div');
             let g = document.createElement('span');
+            f.data_test = "message";
             if (resposta.data[j].type == 'status'){
                 g.innerHTML = '<span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].from + '</span> ' + resposta.data[j].text;
                 f.classList.add('status');

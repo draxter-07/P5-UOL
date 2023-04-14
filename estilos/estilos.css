@@ -137,11 +137,10 @@ button{
     box-sizing: border-box;
     margin: 0px 0px 10px;
     color: black;
-    border: 1px solid black;
-    margin: 0px;
     padding: 0px;
     background-color: rgb(255, 255, 255);
     width: 100%;
+    text-align: left;
 }
 .blur{
     display: none;

@@ -16,30 +16,30 @@
             <img class="logo" src="./imgs/logo-uol.png">
         </div>
         <div class="tela-inicial" id="tela_inicial">
-            <input class="login-input" placeholder="Digite seu usuário" id="name">
-            <button class="login-button" onclick="iniciar()">Entrar</button>
+            <input class="login-input" placeholder="Digite seu usuário" id="name" data-test="input-name">
+            <button class="login-button" id="login-btn" onclick="iniciar()" data-test="send-name">Entrar</button>
             <span class="login-message" id="message_login"></span>
         </div>
         <div class="tela-message" id="tela_message">
             <div class="header">
                 <img class="logo" src="./imgs/logo-uol.png">
-                <button onclick="open_side()"><ion-icon name="people" class="people-icon"></ion-icon></button>
+                <button onclick="open_side()"><ion-icon name="people" class="people-icon" data-test="open-participants"></ion-icon></button>
             </div>
             <div class="messages" id="messages">
             </div>
             <div class="bottom-input">
-                <input class="message-input" placeholder="Escreva aqui..." id="actual_message">
-                <button onclick="send_message()"><ion-icon name="paper-plane-outline" class="send-icon"></ion-icon></button>
+                <input class="message-input" placeholder="Escreva aqui..." id="actual_message" data-test="input-message">
+                <button onclick="send_message()" id="send_message" data-test="send-message"><ion-icon name="paper-plane-outline" class="send-icon"></ion-icon></button>
             </div>
             <div id="side" class="side-menu">
                 <div id="side_part">
                     <span class="titulo-side">Escolha o destinatário</span>
                     <div class="destinatario">
-                        <button class="participante">Todos</button>
+                        <button class="participante" data-test="all">Todos</button>
                     </div>
                 </div>
             </div>
-            <button onclick="close_side()"><div id="blur" class="blur"></div></button>
+            <button onclick="close_side()"><div id="blur" class="blur" data-test="overlay"></div></button>
         </div>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
