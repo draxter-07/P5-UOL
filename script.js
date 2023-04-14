@@ -29,11 +29,11 @@ function iniciar(){
     let a = axios.post("https://mock-api.driven.com.br/api/vm/uol/participants", nome);
     a.then(entrar);
     function entrar(resposta){
+        open_message();
         console.log(resposta.data);
         document.getElementById("message_login").innerHTML = "Bem-vindo!";
         nome_user = nome;
         atualizar_participantes();
-        open_message();
         manter_conexao();
         document.getElementById("tela_inicial").style.display = "none";
         document.getElementById("tela_message").style.display = "flex";
@@ -59,7 +59,6 @@ async function manter_conexao(){
             console.log("Não estou conectado");
         }
         atualizar_participantes();
-        open_message();
     }
 }
 
@@ -117,33 +116,36 @@ function atualizar_participantes(){
     }
 }
 
-function open_message(){
-    axios.defaults.headers.common['Authorization'] = tokenApi;
-    let a = axios.get("https://mock-api.driven.com.br/api/vm/uol/messages");
-    a.then(recebi);
-    function recebi(resposta){
-        console.log("Encontrei as mensagens");
-        document.getElementById('messages').innerHTML = '';
-        for (let i = 0; i < resposta.data.length; i++){
-            let j = resposta.data.length - i - 1;
-            let f = document.createElement('div');
-            let g = document.createElement('span');
-            f.setAttribute("data-test", "message");
-            if (resposta.data[j].type == 'status'){
-                g.innerHTML = '<span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].from + '</span> ' + resposta.data[j].text;
-                f.classList.add('status');
-                f.appendChild(g);
-            }
-            else if (resposta.data[j].type == 'message'){
-                g.innerHTML = '<span style="color:rgb(200, 200, 200)">' + resposta.data[j].time + '</span> <span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].from + '</span> para <span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].to + '</span>: ' + resposta.data[j].text;
-                f.classList.add('message');
-                f.appendChild(g);
-            }
-            document.getElementById("messages").appendChild(f);
-        };
-    }
-    a.catch(nao_recebi)
-    function nao_recebi(resposta){
-        console.log("Não encontrei as mensagens");
-    }
+async function open_message(){
+    while (true){
+        axios.defaults.headers.common['Authorization'] = tokenApi;
+        let a = axios.get("https://mock-api.driven.com.br/api/vm/uol/messages");
+        a.then(recebi);
+        function recebi(resposta){
+            console.log("Encontrei as mensagens");
+            document.getElementById('messages').innerHTML = '';
+            for (let i = 0; i < resposta.data.length; i++){
+                let j = resposta.data.length - i - 1;
+                let f = document.createElement('div');
+                let g = document.createElement('span');
+                f.setAttribute("data-test", "message");
+                if (resposta.data[j].type == 'status'){
+                    g.innerHTML = '<span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].from + '</span> ' + resposta.data[j].text;
+                    f.classList.add('status');
+                    f.appendChild(g);
+                }
+                else if (resposta.data[j].type == 'message'){
+                    g.innerHTML = '<span style="color:rgb(200, 200, 200)">' + resposta.data[j].time + '</span> <span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].from + '</span> para <span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].to + '</span>: ' + resposta.data[j].text;
+                    f.classList.add('message');
+                    f.appendChild(g);
+                }
+                document.getElementById("messages").appendChild(f);
+            };
+        }
+        a.catch(nao_recebi)
+        function nao_recebi(resposta){
+            console.log("Não encontrei as mensagens");
+        }
+        await sleep(3000);
+    };
 }
