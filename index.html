@@ -23,7 +23,7 @@
         <div class="tela-message" id="tela_message">
             <div class="header">
                 <img class="logo" src="./imgs/logo-uol.png">
-                <button onclick="open_side()"><ion-icon name="people" class="people-icon"></ion-icon></button>
+                <button onclick="open_side()"><ion-icon name="people" class="people-icon" data-test="open-participants"></ion-icon></button>
             </div>
             <div class="messages" id="messages">
             </div>
@@ -32,10 +32,28 @@
                 <button onclick="send_message()" id="send_message" data-test="send-message"><ion-icon name="paper-plane-outline" class="send-icon"></ion-icon></button>
             </div>
             <div id="side" class="side-menu">
-                <div id="side_part">
+                <div id="side_part" class="side-part">
                     <span class="titulo-side">Escolha o destinatário</span>
                     <div class="destinatario">
-                        <button class="participante">Todos</button>
+                        <div class="d1">
+                            <ion-icon name="person-circle-outline"></ion-icon>
+                            <button class="participante" data-test="all" onclick="check()">Todos</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-part2">
+                    <span class="titulo-side">Escolha a visibilidade</span>
+                    <div class="destinatario">
+                        <div class="d1">
+                            <ion-icon name="person-circle-outline"></ion-icon>
+                            <button class="participante" data-test="public">Público</button>
+                        </div>
+                    </div>
+                    <div class="destinatario">
+                        <div class="d1">
+                            <ion-icon name="person-circle-outline"></ion-icon>
+                            <button class="participante" data-test="private">Privado</button>
+                        </div>
                     </div>
                 </div>
             </div>

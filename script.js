@@ -89,18 +89,33 @@ function atualizar_participantes(){
         e.classList.add("titulo-side");
         document.getElementById("side_part").appendChild(e);
         let q = document.createElement('div');
+        let v = document.createElement('div');
         let w = document.createElement('button');
+        let h = document.createElement('ion-icon');
+        h.name = "person-circle-outline";
         w.innerHTML = "Todos";
+        w.setAttribute("onclick", "check()");
         w.classList.add("participante");
-        q.appendChild(w);
+        v.appendChild(h);
+        v.appendChild(w);
+        v.classList.add("d1");
+        q.appendChild(v);
         q.classList.add('destinatario');
         document.getElementById("side_part").appendChild(q);
         for (let i = 0; i < resposta.data.length; i++){
             let f = document.createElement('div');
             let g = document.createElement('button');
+            let v = document.createElement('div');
+            let h = document.createElement('ion-icon');
+            g.setAttribute("onclick", "check()");
+            h.name = "person-circle-outline";
+            f.setAttribute("data-test", "participant");
             g.innerHTML = resposta.data[i].name;
             g.classList.add('participante');
-            f.appendChild(g);
+            v.appendChild(h);
+            v.appendChild(g);
+            v.classList.add("d1");
+            f.appendChild(v);
             f.classList.add('destinatario');
             document.getElementById("side_part").appendChild(f);
         };
@@ -143,4 +158,11 @@ async function open_message(){
         };
         await sleep(3000);
     };
+}
+
+function check(){
+    let h = event.target.closest('#destinatario');
+    let ico = document.createElement('ion-icon');
+    ico.name = "person-circle-outline";
+    h.appendChild(ico);
 }
