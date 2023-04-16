@@ -6,10 +6,6 @@ var input_message = document.getElementById("actual_message");
 input_message.addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
     document.getElementById("send_message").click();}});
-var input_login = document.getElementById("name");
-input_login.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-    document.getElementById("login-btn").click();}});
 
 function open_side(){
     document.getElementById("side").style.display = "flex";
@@ -22,7 +18,6 @@ function close_side(){
 }
 
 function iniciar(){
-    console.log("clcou");
     document.getElementById("message_login").innerHTML = "Verificando se o usuário está disponível";
     axios.defaults.headers.common['Authorization'] = tokenApi;
     let nome = {
@@ -131,12 +126,12 @@ async function open_message(){
                 let g = document.createElement('span');
                 f.setAttribute("data-test", "message");
                 if (resposta.data[j].type == 'status'){
-                    g.innerHTML = '<span style="color:rgb(200, 200, 200)">(' + resposta.data[j].time + ')</span> <span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].from + '</span> ' + resposta.data[j].text;
+                    g.innerHTML = '' + resposta.data[j].time + ' ' + resposta.data[j].from + ' ' + resposta.data[j].text;
                     f.classList.add('status');
                     f.appendChild(g);
                 }
                 else if (resposta.data[j].type == 'message'){
-                    g.innerHTML = '<span style="color:rgb(200, 200, 200)">(' + resposta.data[j].time + ')</span> <span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].from + '</span> para <span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].to + '</span>: ' + resposta.data[j].text;
+                    g.innerHTML = '' + resposta.data[j].time + ' ' + resposta.data[j].from + ' ' + resposta.data[j].to + ' ' + resposta.data[j].text;
                     f.classList.add('message');
                     f.appendChild(g);
                 };
