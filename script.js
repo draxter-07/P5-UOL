@@ -6,7 +6,7 @@ var input_message = document.getElementById("actual_message");
 input_message.addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
     document.getElementById("send_message").click();}});
-var input_message = document.getElementById("name");
+var input_login = document.getElementById("name");
 input_login.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
     document.getElementById("login-btn").click();}});
@@ -22,6 +22,8 @@ function close_side(){
 }
 
 function iniciar(){
+    console.log("clcou");
+    document.getElementById("message_login").innerHTML = "Verificando se o usuário está disponível";
     axios.defaults.headers.common['Authorization'] = tokenApi;
     let nome = {
         name: document.getElementById("name").value
@@ -29,9 +31,9 @@ function iniciar(){
     let a = axios.post("https://mock-api.driven.com.br/api/vm/uol/participants", nome);
     a.then(entrar);
     function entrar(resposta){
-        open_message();
-        document.getElementById("message_login").innerHTML = "Bem-vindo!";
+        document.getElementById("message_login").innerHTML = "Está disponível! Bem-vindo!";
         nome_user = nome;
+        open_message();
         atualizar_participantes();
         manter_conexao();
         document.getElementById("tela_inicial").style.display = "none";
@@ -76,6 +78,7 @@ function send_message(){
     a.catch(nao_enviado);
     function nao_enviado(){
         console.log("Mensagem não enviada");
+        window.location.reload();
     };
     document.getElementById("actual_message").value = "";
 }
