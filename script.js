@@ -98,7 +98,6 @@ function atualizar_participantes(){
         for (let i = 0; i < resposta.data.length; i++){
             let f = document.createElement('div');
             let g = document.createElement('button');
-            f.setAttribute("data-test", "participant");
             g.innerHTML = resposta.data[i].name;
             g.classList.add('participante');
             f.appendChild(g);
@@ -126,12 +125,12 @@ async function open_message(){
                 let g = document.createElement('span');
                 f.setAttribute("data-test", "message");
                 if (resposta.data[j].type == 'status'){
-                    g.innerHTML = '' + resposta.data[j].time + ' ' + resposta.data[j].from + ' ' + resposta.data[j].text;
+                    g.innerHTML = '<span style="color:rgb(200, 200, 200)">(' + resposta.data[j].time + ')</span> <span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].from + '</span> ' + resposta.data[j].text;
                     f.classList.add('status');
                     f.appendChild(g);
                 }
                 else if (resposta.data[j].type == 'message'){
-                    g.innerHTML = '' + resposta.data[j].time + ' ' + resposta.data[j].from + ' ' + resposta.data[j].to + ' ' + resposta.data[j].text;
+                    g.innerHTML = '<span style="color:rgb(200, 200, 200)">(' + resposta.data[j].time + ')</span> <span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].from + '</span> para <span style="color:rgb(0, 0, 0);font-weight:bold">' + resposta.data[j].to + '</span>: ' + resposta.data[j].text;
                     f.classList.add('message');
                     f.appendChild(g);
                 };
